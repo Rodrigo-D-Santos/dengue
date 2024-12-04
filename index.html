@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    body {
+        background-image: url('home_pr_gov_br.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        min-height: 2722px;
+    }
+
+    .bug {
+        pointer-events: auto;
+        /* Permite eventos de clique no elemento */
+        z-index: 10000000;
+        cursor: pointer;
+    }
+</style>
+
+<body>
+    <script type="text/javascript" src="bug.js"></script>
+    <script type="text/javascript">
+        // default fruit fly bug:
+        //new BugController({
+
+        //});
+
+        // default spiders:
+        new SpiderController({
+            'imageSprite': 'aedes3.png',
+            'minDelay': 100,
+            'maxDelay': 100,
+            'minBugs': 1,
+            'maxBugs': 1,
+            'canDie': false,
+            'maxSpeed': 6,
+            'num_frames': 6,
+            'maxWiggleDeg': 10,
+            'bugWidth': 70,
+            'bugHeight': 90,
+            'zoom': 10,
+            'yInicial': (document.documentElement.clientHeight / 2),
+            'xInicial': (document.documentElement.clientWidth / 2) - 550,
+            'mouseOver': 'nothing',
+
+        });
+
+
+        document.querySelectorAll('.bug').forEach(element => {
+            element.addEventListener('click', (e) => {
+                e.stopPropagation(); // Impede que o evento se propague para elementos pai
+                console.log('Clicado!');
+            });
+        });
+
+    </script>
+
+    <div class="bug"
+        style="background: 0px 0px no-repeat transparent; width: 70px; height: 90px; position: fixed; top: 0px; left: 0px; z-index: 9999999; transform: translate(64px, 208px) rotate(-113deg) scale(1);">
+    </div>
+</body>
+
+</html>
